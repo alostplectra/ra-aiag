@@ -1,0 +1,7 @@
+requests>=2.31
+pandas>=2.0
+oracledb>=1.5
+python-dotenv>=1.0
+
+[excel]
+openpyxl>=3.1
