@@ -3,12 +3,12 @@
 =======
 # Agente de IA con Ollama y fuentes Oracle/CSV
 
-Este proyecto crea un agente que utiliza el modelo `gpt-oss-20b` desde una instancia local de Ollama. El agente intenta conectarse tanto a una base de datos Oracle como a un archivo CSV o Excel, usa las conexiones que se establezcan correctamente y devuelve un error cuando ninguna fuente esta disponible.
+Este proyecto crea un agente que utiliza el modelo `gpt-oss:20b` desde una instancia local de Ollama. El agente intenta conectarse tanto a una base de datos Oracle como a un archivo CSV o Excel, usa las conexiones que se establezcan correctamente y devuelve un error cuando ninguna fuente esta disponible.
 
 ## Requisitos
 
 - Python 3.10 o superior
-- [Ollama](https://ollama.com/) ejecutandose localmente con el modelo `gpt-oss-20b`
+- [Ollama](https://ollama.com/) ejecutandose localmente con el modelo `gpt-oss:20b`
 - Dependencias del proyecto (`pip install -e .[excel]` si se quieren leer archivos de Excel)
 - Cliente Oracle autonomo si se utiliza la biblioteca `oracledb` en modo cliente grueso (consultar la documentacion oficial)
 
@@ -41,7 +41,7 @@ Las variables se pueden definir en un archivo `.env` en la raiz o como variables
 ```env
 # Conexion a Ollama
 OLLAMA_HOST=http://localhost:11434
-OLLAMA_MODEL=gpt-oss-20b
+OLLAMA_MODEL=gpt-oss:20b
 
 # Oracle
 ORACLE_ENABLED=true

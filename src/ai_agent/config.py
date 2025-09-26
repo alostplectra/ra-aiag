@@ -72,7 +72,7 @@ def load_config() -> AgentConfig:
 
     return AgentConfig(
         ollama_host=os.getenv("OLLAMA_HOST", "http://localhost:11434"),
-        model=os.getenv("OLLAMA_MODEL", "gpt-oss-20b"),
+        model=os.getenv("OLLAMA_MODEL", "gpt-oss:20b"),
         oracle=oracle_settings,
         file=file_settings,
     )
