@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# ra-aiag
+=======
 # Agente de IA con Ollama y fuentes Oracle/CSV
 
 Este proyecto crea un agente que utiliza el modelo `gpt-oss-20b` desde una instancia local de Ollama. El agente intenta conectarse tanto a una base de datos Oracle como a un archivo CSV o Excel, usa las conexiones que se establezcan correctamente y devuelve un error cuando ninguna fuente esta disponible.
@@ -103,3 +106,4 @@ El agente intentara conectarse primero a las fuentes configuradas y generara una
 
 Contribuciones y mejoras son bienvenidas.
 
+>>>>>>> 86bc446 (cargar proyecto)
