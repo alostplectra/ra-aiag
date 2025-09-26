@@ -195,13 +195,21 @@ class DataAgent:
         return parsed
 
     def _format_plan_result(self, result: QueryResult) -> List[str]:
+        rows = result.rows
+        total_rows = len(rows)
+        max_rows = 200
+        display_rows = rows.head(max_rows) if total_rows > max_rows else rows
         try:
-            table_markdown = result.rows.to_markdown()
+            table_markdown = display_rows.to_markdown()
         except Exception:
-            table_markdown = result.rows.to_string()
+            table_markdown = display_rows.to_string()
+        summary_line = f"Filas del resultado: {total_rows}"
+        if total_rows > max_rows:
+            summary_line += f" (se muestran las primeras {max_rows})"
         return [
             "Plan ejecutado:",
             result.description,
+            summary_line,
             "Resultado del plan:",
             table_markdown,
         ]
@@ -214,6 +222,10 @@ class DataAgent:
             parts: List[str] = [f"Fuente {source.name}:"]
             if isinstance(source, TabularFileDataSource):
                 parts.append(source.schema_overview())
+                summary_snippets = source.summary_snippets()
+                if summary_snippets:
+                    parts.append("Resumen estadistico:")
+                    parts.extend(summary_snippets)
             try:
                 preview = source.fetch_preview(limit=5)
             except Exception as exc:
